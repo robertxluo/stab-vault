@@ -53,7 +53,7 @@ const Item = ({
 
   return (
     <motion.li
-      className="path-editor__item"
+      className={styles.PathEditorItem}
       ref={ref}
       initial={false}
       // If we're dragging, we want to set the zIndex of that item to be on top of the other items.

@@ -55,9 +55,8 @@ category: {},
 
 router.get('/', async (req, res) => {
   try {
-    const collections = await Collection.find({ hidden: 'false' }).sort({
-      date: -1,
-    });
+    const collections = await Collection.find().sort();
+    console.log(collections)
     res.json(collections);
   } catch (err) {
     console.error(err.message);

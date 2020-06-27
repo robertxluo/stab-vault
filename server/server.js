@@ -33,6 +33,9 @@ app.get('/api/checkToken', verifyToken, userController.findOneUser);
 // Collection routes
 app.use('/api/collections', require('./routes/api/collections'));
 
+// Path routes
+app.use('/api/paths', require('./routes/api/paths'));
+
 // Let React handle all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
