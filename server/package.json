@@ -6,7 +6,8 @@
   "scripts": {
     "server": "nodemon server.js",
     "react": "cd ../client && npm run react",
-    "start": "concurrently \"npm run server\" \"npm run react\""
+    "start": "concurrently \"npm run server\" \"npm run react\"",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.21.2",
     "husky": "^4.2.5",
+    "jest": "^26.1.0",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5"
   },
