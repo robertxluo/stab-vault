@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/app/app.component';
+import Main from './routes/main.route';
 import 'minireset.css';
 import './global.style.css';
 
-render(<App />, document.querySelector('#app'));
+render(<Main />, document.querySelector('#app'));

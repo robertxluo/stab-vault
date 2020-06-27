@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 import styles from './login.style.css';
 
@@ -41,29 +42,17 @@ const Login = ({ setLoggedInUser }) => {
       <form>
         <label htmlFor="login-email" className="input-label">
           <div className="input-label__text">Email</div>
-          <input
-            type="text"
-            className="input-label__input"
-            id="login-email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
+          <input type="text" className="input-label__input" id="login-email" onChange={(e) => setEmail(e.target.value)} value={email} />
         </label>
 
         <label htmlFor="login-password" className="input-label">
           <div className="input-label__text">Password</div>
-          <input
-            type="password"
-            className="input-label__input"
-            id="login-password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
+          <input type="password" className="input-label__input" id="login-password" onChange={(e) => setPassword(e.target.value)} value={password} />
         </label>
 
-        <button type="submit" onClick={login}>
+        <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} type="submit" onClick={login}>
           Login
-        </button>
+        </motion.button>
       </form>
     </div>
   );

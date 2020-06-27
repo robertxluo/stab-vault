@@ -25,14 +25,10 @@ const WithAuth = ({ Component }) => {
 
   if (loading) return null;
   if (redirect) {
-    return (
-      <Redirect to="/login" />
-    );
+    return <Redirect to="/login" />;
   }
 
-  return (
-    <Component />
-  );
+  return <Component />;
 };
 
 WithAuth.propTypes = {

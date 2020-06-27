@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Login from '../../pages/login/login.page';
-import Register from '../../pages/register/register.page';
-import Settings from '../../pages/settings/settings.page';
-import NotFound from '../../pages/not-found/not-found.page';
-import MyPaths from '../../pages/my-paths/my-paths.page';
-import PathEditor from '../../pages/path-editor/path-editor.page';
-import PathViewer from '../../pages/path-viewer/path-viewer.page';
-import Home from '../../pages/home/home.page';
+import Login from '../pages/login/login.page';
+import Register from '../pages/register/register.page';
+import Settings from '../pages/settings/settings.page';
+import NotFound from '../pages/not-found/not-found.page';
+import MyPaths from '../pages/my-paths/my-paths.page';
+import PathEditor from '../pages/path-editor/path-editor.page';
+import PathViewer from '../pages/path-viewer/path-viewer.page';
+import Home from '../pages/home/home.page';
 
-import Nav from '../nav/nav.component';
-import WithAuth from '../with-auth/with-auth.component';
-import AllLearningPaths from '../collections/all-learning-paths/all-learning-paths.component';
-import ExpandedLearningPath from '../collections/expanded-collection/expanded-collection.component';
-import SavedCollections from '../collections/saved-collections/saved-collections.component';
+import WithAuth from './with-auth.route';
 
-const App = () => {
+import Nav from '../components/nav/nav.component';
+import AllLearningPaths from '../components/collections/all-learning-paths/all-learning-paths.component';
+import ExpandedLearningPath from '../components/collections/expanded-collection/expanded-collection.component';
+import SavedCollections from '../components/collections/saved-collections/saved-collections.component';
+
+const Main = () => {
   const [loggedInUser, setLoggedInUser] = useState('');
   useEffect(() => {
     fetch('/api/checkToken')
@@ -82,4 +83,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Main;

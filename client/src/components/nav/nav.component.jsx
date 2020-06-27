@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { motion } from 'framer-motion';
+
 import NavDropDown from '../nav-drop-down/nav-drop-down.component';
 
 import styles from './nav.style.css';
@@ -11,28 +13,19 @@ const Nav = ({ loggedInUser, setLoggedInUser }) => (
       {!loggedInUser && (
         <>
           <Link to="/">
-            <button
-              type="button"
-              className={`${styles.NavBtn} ${styles.NavBtnHome}`}
-            >
+            <button type="button" className={`${styles.NavBtn} ${styles.NavBtnHome}`}>
               Home
             </button>
           </Link>
           <Link to="/register">
-            <button
-              type="button"
-              className={`${styles.NavBtn} ${styles.NavBtnSignUp}`}
-            >
+            <button type="button" className={`${styles.NavBtn} ${styles.NavBtnSignUp}`}>
               Sign Up
             </button>
           </Link>
           <Link to="/login">
-            <button
-              type="button"
-              className={`${styles.NavBtn} ${styles.NavBtnLogin}`}
-            >
+            <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} type="button" className={`${styles.NavBtn} ${styles.NavBtnLogin}`}>
               Login
-            </button>
+            </motion.button>
           </Link>
         </>
       )}

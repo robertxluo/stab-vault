@@ -1,4 +1,4 @@
-.path-editor__page {
+.PathEditorPage {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -9,23 +9,23 @@
   align-items: center;
 }
 
-.path-editor,
-.path-editor li {
+.PathEditor,
+.PathEditor li {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.path-editor {
+.PathEditor {
   position: relative;
-  width: 300px;
+  width: 200px;
 }
 
-.path-editor li {
+.PathEditor li {
   border-radius: 10px;
   margin-bottom: 10px;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
   height: 80px;
   position: relative;
   display: flex;
@@ -33,7 +33,7 @@
   align-items: center;
 }
 
-.path-editor__name {
+.PathEditorName {
   font-size: 2rem;
   color: var(--gray-900);
 }

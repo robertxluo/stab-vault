@@ -4,7 +4,7 @@ import { motion, useMotionValue } from 'framer-motion';
 import move from 'array-move';
 import findIndex from './find-index';
 
-import './path-editor.style.css';
+import styles from './path-editor.style.css';
 
 const initialColors = [
   ['#FF008C', 'HTML'],
@@ -82,7 +82,7 @@ const Item = ({
         return !isDragging;
       }}
     >
-      <p className="path-editor__name">{name}</p>
+      <p className={styles.PathEditorName}>{name}</p>
     </motion.li>
   );
 };
@@ -107,17 +107,10 @@ const PathEditor = () => {
   };
 
   return (
-    <main className="path-editor__page">
-      <ul className="path-editor">
+    <main className={styles.PathEditorPage}>
+      <ul className={styles.PathEditor}>
         {colors.map(([color, name], i) => (
-          <Item
-            key={color}
-            i={i}
-            name={name}
-            color={color}
-            setPosition={setPosition}
-            moveItem={moveItem}
-          />
+          <Item key={color} i={i} name={name} color={color} setPosition={setPosition} moveItem={moveItem} />
         ))}
       </ul>
     </main>
