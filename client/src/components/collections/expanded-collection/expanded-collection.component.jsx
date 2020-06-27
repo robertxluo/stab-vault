@@ -6,8 +6,7 @@ import SaveButton from '../save-button/save-button.component';
 
 import './expanded-collection.style.css';
 
-
-const ExpandedCollection = ({ loggedInUser }) => {
+const ExpandedLearningPath = ({ loggedInUser }) => {
   const [collection, setCollection] = useState([]);
 
   const { id } = useParams();
@@ -21,14 +20,9 @@ const ExpandedCollection = ({ loggedInUser }) => {
   }, []);
 
   return (
-
     <div key={collection._id} className="collection-div">
-      <h1>
-        {collection.title}
-      </h1>
-      <h3>
-        {collection.description}
-      </h3>
+      <h1>{collection.title}</h1>
+      <h3>{collection.description}</h3>
 
       <div className="creator">
         <div className="creator__label">Creator:</div>
@@ -37,13 +31,13 @@ const ExpandedCollection = ({ loggedInUser }) => {
 
       {collection.links && (
         <div className="links">
-          {collection.links.map(
-            (link) => (
-              <div className="links__item" key={link}>
-                <a href={link} target="_blank" rel="noreferrer">{link}</a>
-              </div>
-            ),
-          )}
+          {collection.links.map((link) => (
+            <div className="links__item" key={link}>
+              <a href={link} target="_blank" rel="noreferrer">
+                {link}
+              </a>
+            </div>
+          ))}
         </div>
       )}
 
@@ -62,8 +56,7 @@ const ExpandedCollection = ({ loggedInUser }) => {
         </div>
       )}
     </div>
-
   );
 };
 
-export default ExpandedCollection;
+export default ExpandedLearningPath;

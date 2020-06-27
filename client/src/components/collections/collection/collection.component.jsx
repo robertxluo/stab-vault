@@ -6,24 +6,21 @@ import SaveButton from '../save-button/save-button.component';
 
 import './collection.style.css';
 
-const Collection = ({
+const LearningPath = ({
   id, title, description, author, loggedInUser,
 }) => (
-
   <div key={id} className="collection">
-    <h1 className="collection__title">
-      {title}
-    </h1>
-    <h3>
-      {description}
-    </h3>
+    <h1 className="collection__title">{title}</h1>
+    <h3>{description}</h3>
 
     <div className="creator">
       <div className="creator__label">Creator:</div>
       <div className="creator__author">{author}</div>
     </div>
     <div>
-      <Link to={`/collections/${id}`} className="collection__button">View Collection</Link>
+      <Link to={`/collections/${id}`} className="collection__button">
+        View Learing Path
+      </Link>
     </div>
     {loggedInUser ? (
       <div>
@@ -35,13 +32,12 @@ const Collection = ({
       <div>
         <br />
         <Link to="/register">Register</Link>
-          &nbsp;or&nbsp;
+        &nbsp;or&nbsp;
         <Link to="/login">Login</Link>
-          &nbsp;to save this collection
+        &nbsp;to save this collection
       </div>
     )}
   </div>
-
 );
 
-export default Collection;
+export default LearningPath;

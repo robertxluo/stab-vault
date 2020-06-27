@@ -12,11 +12,10 @@ import PathViewer from '../../pages/path-viewer/path-viewer.page';
 import Nav from '../nav/nav.component';
 import Home from '../../pages/home/home.page';
 import WithAuth from '../with-auth/with-auth.component';
-import AllCollections from '../collections/all-collections/all-collections.component';
-import ExpandedCollection from '../collections/expanded-collection/expanded-collection.component';
+import AllLearningPaths from '../collections/all-learning-paths/all-learning-paths.component';
+import ExpandedLearningPath from '../collections/expanded-collection/expanded-collection.component';
 import SavedCollections from '../collections/saved-collections/saved-collections.component';
-
-import styles from './app.style.css';
+// import Home from '../home/home.component';
 
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState('');
@@ -44,19 +43,19 @@ const App = () => {
           </Route>
 
           <Route path="/collections/user/:userId">
-            <AllCollections userCollections loggedInUser={loggedInUser} />
+            <AllLearningPaths userCollections loggedInUser={loggedInUser} />
           </Route>
 
           <Route path="/collections/:id">
-            <ExpandedCollection loggedInUser={loggedInUser} />
+            <ExpandedLearningPath loggedInUser={loggedInUser} />
           </Route>
 
           <Route path="/savedcollections">
             <SavedCollections loggedInUser={loggedInUser} />
           </Route>
 
-          <Route path="/all-collections" exact>
-            <AllCollections loggedInUser={loggedInUser} />
+          <Route path="/all-paths" exact>
+            <AllLearningPaths loggedInUser={loggedInUser} />
           </Route>
 
           <Route path="/my-paths" exact>

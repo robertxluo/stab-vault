@@ -1,0 +1,27 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Label {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+.LabelText {
+  text-align: center;
+}
+
+.Input {
+}
+
+.TextArea {
+}
+
+.SubmitBtn {
+  width: 200px;
+  height: 30px;
+  align-self: center;
+  border-radius: 5px;
+}

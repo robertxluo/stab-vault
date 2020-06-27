@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import Collection from '../collection/collection.component';
+import LearningPath from '../collection/collection.component';
 
 const SavedCollections = ({ loggedInUser }) => {
   const [collections, setCollections] = useState([]);
@@ -22,7 +22,8 @@ const SavedCollections = ({ loggedInUser }) => {
             .then((res) => res.json())
             .then((result) => {
               currentCollections.push(result);
-            }).then(() => {
+            })
+            .then(() => {
               setCollections([...currentCollections]);
             }));
         }
@@ -33,28 +34,24 @@ const SavedCollections = ({ loggedInUser }) => {
   }, []);
 
   return (
-
     <div>
-
       <h1>Saved Collections</h1>
 
-      {collections[0] !== undefined
-        ? (
-          collections.map((collection) => (
-
-            <Collection
-              key={collection._id}
-              id={collection._id}
-              title={collection.title}
-              description={collection.description}
-              author={collection.author}
-              loggedInUser={loggedInUser}
-            />
-
-          ))) : <li> Loading...</li>}
-
+      {collections[0] !== undefined ? (
+        collections.map((collection) => (
+          <LearningPath
+            key={collection._id}
+            id={collection._id}
+            title={collection.title}
+            description={collection.description}
+            author={collection.author}
+            loggedInUser={loggedInUser}
+          />
+        ))
+      ) : (
+        <li> Loading...</li>
+      )}
     </div>
-
   );
 };
 
