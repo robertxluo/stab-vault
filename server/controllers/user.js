@@ -58,7 +58,7 @@ exports.loginUser = (req, res) => {
 // -------------
 
 exports.registerUser = async (req, res) => {
-  const { email, username, password } = req.body;
+  const { email, password } = req.body;
 
   // --------------------------------------------------------------
   // Check to see if somebody with that email is already registered
@@ -70,23 +70,13 @@ exports.registerUser = async (req, res) => {
     return res.send({ emailAlreadyExists: true });
   }
 
-  // ---------------------------------------------
-  // Check to see if the username is already taken
-  // ---------------------------------------------
-
-  const userFromDb = await User.find({ username });
-
-  if (userFromDb.length) {
-    return res.send({ usernameTaken: true });
-  }
-
   // ------------------------------------------------------------
   // No errors so far, go ahead and try to add the user to the DB
   // ------------------------------------------------------------
 
   // This is also possible to do with pre save hooks in mongoose
   const hashedPassword = await bcrypt.hash(password, saltRounds);
-  const user = new User({ email, username, password: hashedPassword });
+  const user = new User({ email, password: hashedPassword });
 
   return user
     .save()
