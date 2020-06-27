@@ -13,7 +13,7 @@ const NavDropDown = ({ setLoggedInUser }) => {
   } = useComponentVisible(false);
 
   return (
-    <div ref={ref} onClick={() => setIsComponentVisible(!isComponentVisible)}>
+    <div ref={ref} role={"menuitem"} taxindex={"1"} onClick={() => setIsComponentVisible(!isComponentVisible)}>
       <button type="button" className={styles.NavDropdownBtn}>
         <i className="fas fa-user-astronaut fa-3x" />
       </button>

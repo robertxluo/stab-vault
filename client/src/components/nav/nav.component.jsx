@@ -7,7 +7,7 @@ import styles from './nav.style.css';
 
 const Nav = ({ loggedInUser, setLoggedInUser }) => (
   <header className={styles.header}>
-    <nav className={styles.nav}>
+    <nav className={styles.Nav}>
       {!loggedInUser && (
         <>
           <Link to="/">
