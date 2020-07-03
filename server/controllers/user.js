@@ -102,3 +102,18 @@ exports.findOneUser = async (req, res) => {
     }
   }
 };
+
+exports.handleFbLogin = async (req, res) => {
+  const { id } = req.user;
+  let user;
+  user = await User.findOne({ email: id }).exec();
+  if (!user) {
+    const hashedId = await bcrypt.hash(id, saltRounds);
+    user = await new User({ email: id, password: hashedId }).save();
+  }
+  const { _id: userId } = user;
+  const payload = { userId };
+  const token = jwt.sign(payload, secret, { expiresIn: '1h' });
+  res.cookie('token', token, { httpOnly: true })
+    .redirect('/');
+};

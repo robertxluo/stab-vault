@@ -59,6 +59,13 @@ const Login = ({ setLoggedInUser }) => {
           Login
         </motion.button>
       </form>
+      <a href="/login/facebook">
+        <img
+          width="75%"
+          alt="Continue with Facebook"
+          src="https://scontent-lga3-2.xx.fbcdn.net/v/t39.2365-6/17639236_1785253958471956_282550797298827264_n.png?_nc_cat=105&_nc_sid=ad8a9d&_nc_ohc=83Ayd4oNugIAX8M4w9J&_nc_ht=scontent-lga3-2.xx&oh=bfb2cf89c4d95d4921e605c2abdff03e&oe=5F222116"
+        />
+      </a>
     </div>
   );
 };

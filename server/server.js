@@ -3,8 +3,11 @@ const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const passport = require('passport');
 
 const userController = require('./controllers/user');
+require('./controllers/user');
+require('./controllers/passportUser');
 const verifyToken = require('./utils/verifyToken');
 
 const app = express();
@@ -20,7 +23,22 @@ dotenv.config();
 app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 app.use(express.json({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
 
+// facebook routes
+app.get('/login/facebook',
+  passport.authenticate('facebook'));
+app.get('/login/facebook/return',
+  passport.authenticate('facebook', {
+    failureRedirect: '/signup',
+  }),
+  userController.handleFbLogin,
+  (req, res) => {
+    res.redirect('/login');
+  });
+
+// other routes
 app.post('/api/register', userController.registerUser);
 app.post('/api/login', userController.loginUser);
 app.get('/api/logout', (req, res) => {

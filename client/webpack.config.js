@@ -57,6 +57,7 @@ module.exports = {
     historyApiFallback: true,
     proxy: {
       '/api': 'http://localhost:5000',
+      '/login/facebook': 'http://localhost:5000',
     },
   },
 };
